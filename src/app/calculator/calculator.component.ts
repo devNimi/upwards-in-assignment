@@ -1,7 +1,7 @@
 import { inject } from '@angular/core/testing';
 import { Component, OnInit } from '@angular/core';
 
-import { calculateEmi, checkProperties} from '../utils/utils'
+import { calculateEmi, checkProperties} from '../utils/utils';
 import { LoanDetails } from './../../loan-details';
 @Component({
   selector: 'app-calculator',

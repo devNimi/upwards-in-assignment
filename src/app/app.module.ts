@@ -1,5 +1,6 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
+import { HttpClientModule }  from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 
 
@@ -19,13 +20,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule }     from './app-routing.module';
 import { LoanApplyComponent } from './loan-apply/loan-apply.component';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { SliderComponent } from './calculator/slider/slider.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -43,7 +44,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MessagesComponent,
     LoanApplyComponent,
     CalculatorComponent,
-    SliderComponent
   ],
   bootstrap: [ AppComponent ]
 })

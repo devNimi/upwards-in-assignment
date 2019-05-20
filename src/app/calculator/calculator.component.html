@@ -1,3 +1,4 @@
+<pre>{{ state$  }}</pre>
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
@@ -39,7 +40,7 @@
       </div>
     </section>
     <section class="apply-now-container">
-      <a routerLink="/apply">
+      <a routerLink="/apply" [state]="loanDetails">
         <button mat-raised-button color="primary" [disabled]="isInputEmpty">Apply Now</button>
       </a>
     </section>

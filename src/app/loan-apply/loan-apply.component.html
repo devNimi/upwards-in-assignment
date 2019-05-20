@@ -1,3 +1,63 @@
-<p>
-  loan-apply works!
-</p>
+<h1>Customer Details Form</h1>
+
+<form class="loan-apply-form" (ngSubmit)="onSubmit()" #loanApplyForm="ngForm" novalidate>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Name" type="text" [(ngModel)]="formData.name" [(ngModel)]="formData.name" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput name="email" placeholder="Email" type="text" [(ngModel)]="formData.email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Phone Number" type="number" [(ngModel)]="formData.phone" [formControl]="phone" required>
+      <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="PAN Number" type="text" [(ngModel)]="formData.pan" [formControl]="pan" required>
+      <mat-error *ngIf="pan.invalid">{{getPanErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Salary" type="number" [(ngModel)]="formData.salary" [formControl]="salary" required>
+      <mat-error *ngIf="salary.invalid">{{getSalaryErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Address" type="text" [(ngModel)]="formData.address" [formControl]="address" required>
+      <mat-error *ngIf="address.invalid">{{getAddressErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Loan Amount" type="number" [(ngModel)]="formData.loanAmount" [formControl]="loanAmount" required>
+      <mat-error *ngIf="loanAmount.invalid">{{getLoanAmountErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Loan Tenure" type="number" [(ngModel)]="formData.loanTenure" [formControl]="loanTenure" required>
+      <mat-error *ngIf="loanTenure.invalid">{{getLoanTenureErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="loan-apply-form-feild">
+    <mat-form-field>
+      <input matInput placeholder="Loan Interest" type="number" [(ngModel)]="formData.loanInterest" [formControl]="loanInterest" required>
+      <mat-error *ngIf="loanInterest.invalid">{{getLoanInterestErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+    <button mat-raised-button color="primary" [disabled]="!isFormValid()">{{isSubmitted ? 'Submitted ✔' : 'Apply'}}</button>
+</form>
+<pre>{{ state$ | async | json }}</pre>
+
+{{isFormValid()}}
+<!-- {{formData | json}} -->
