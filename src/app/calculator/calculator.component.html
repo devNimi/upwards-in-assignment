@@ -1,54 +1,55 @@
-<pre>{{ state$  }}</pre>
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Personal Loan EMI calculator</mat-card-title>
-    <mat-card-subtitle>Instant Loans Up To ₹ 1 Lakh | Apply Now</mat-card-subtitle>
-  </mat-card-header>
-  <!-- <img mat-card-image src="assets/images/main.jpg" alt="calculate your emi">
-  <mat-card-content>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat, dui sed ultrices convallis, magna metus placerat
-      nisl, sed auctor leo leo ac orci. Etiam eu libero cursus, aliquam justo vitae, vehicula nunc. Donec sit amet nulla in
-      lacus vestibulum rhoncus. Donec pellentesque id nunc at facilisis. Fusce pellentesque at metus vehicula mattis.
-      Phasellus gravida nisl risus, sit amet placerat sem vulputate et. Aenean at commodo tellus, varius malesuada orci. Duis
-      nec risus sed est tincidunt ultricies a vitae mi.
-    </p>
-  </mat-card-content> -->
-  <mat-card-actions>
-    <section class="calculator-container">
-      <div class="calculator-feild">
-        <mat-form-field appearance="outline">
-          <mat-label>Loan Amount</mat-label>
-          <input [(ngModel)]="loanDetails.amount" (ngModelChange)="updateLoanDetails($event)" matInput  placeholder="15000" type="number" required>
-          <!-- <mat-hint>Loan Amount</mat-hint> -->
-        </mat-form-field>
-      </div>
-      <div class="calculator-feild">
-        <mat-form-field appearance="outline">
-          <mat-label>Loan Tenure </mat-label>
-          <input [(ngModel)]="loanDetails.duration" (ngModelChange)="updateLoanDetails($event)" matInput placeholder="15000" type="number" required>
-          <mat-hint>Tenure in Months</mat-hint>
-        </mat-form-field>
-      </div>
-      <div class="calculator-feild">
-        <mat-form-field appearance="outline">
-          <mat-label>Interest Rate (per annum) </mat-label>
-          <input [(ngModel)]="loanDetails.interest" (ngModelChange)="updateLoanDetails($event)" matInput placeholder="15000" type="number" required>
-          <mat-hint>ex. 30%</mat-hint>
-        </mat-form-field>
-      </div>
-    </section>
-    <section class="apply-now-container">
-      <a routerLink="/apply" [state]="loanDetails">
-        <button mat-raised-button color="primary" [disabled]="isInputEmpty">Apply Now</button>
-      </a>
-    </section>
-  </mat-card-actions>
-</mat-card>
-
-<h2>Your emi is {{monthlyEmi}}</h2>
-<p> ___ {{loanDetails.amount}}</p>
-<p> ___ {{loanDetails.interest}}</p>
-<p> ___ {{loanDetails.duration}}</p>
-<p> isemtpy {{isInputEmpty}}</p>
+<main class="calculator-main-container">
+  <mat-card class="calculatorcard">
+    <mat-card-header>
+      <div mat-card-avatar class="calculatorheader-image"></div>
+      <mat-card-title>Personal Loan EMI calculator</mat-card-title>
+      <mat-card-subtitle>Instant Loans Up To ₹ 1 Lakh | <a  routerLink="/apply">Apply Now</a> </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="assets/images/main.jpg" alt="calculate your emi">
+    <mat-card-content>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat, dui sed ultrices convallis, magna metus
+        placerat
+        nisl, sed auctor leo leo ac orci. Etiam eu libero cursus, aliquam justo vitae, vehicula nunc. Donec sit amet nulla
+        in
+        lacus vestibulum rhoncus. Donec pellentesque id nunc at facilisis. Fusce pellentesque at metus vehicula mattis.
+        Phasellus gravida nisl risus, sit amet placerat sem vulputate et. Aenean at commodo tellus, varius malesuada orci.
+        Duis
+        nec risus sed est tincidunt ultricies a vitae mi.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <section class="calculator-container">
+        <div class="calculator-feild">
+          <mat-form-field appearance="outline">
+            <mat-label>Loan Amount</mat-label>
+            <input [(ngModel)]="loanDetails.amount" (ngModelChange)="updateLoanDetails($event)" matInput
+              placeholder="15000" type="number" required>
+            <!-- <mat-hint>Loan Amount</mat-hint> -->
+          </mat-form-field>
+        </div>
+        <div class="calculator-feild">
+          <mat-form-field appearance="outline">
+            <mat-label>Loan Tenure (in Months)</mat-label>
+            <input [(ngModel)]="loanDetails.duration" (ngModelChange)="updateLoanDetails($event)" matInput
+              placeholder="15000" type="number" required>
+            <!-- <mat-hint>Tenure in Months</mat-hint> -->
+          </mat-form-field>
+        </div>
+        <div class="calculator-feild">
+          <mat-form-field appearance="outline">
+            <mat-label>Interest Rate (per annum) </mat-label>
+            <input [(ngModel)]="loanDetails.interest" (ngModelChange)="updateLoanDetails($event)" matInput
+              placeholder="15000" type="number" required>
+            <!-- <mat-hint>ex. 30%</mat-hint> -->
+          </mat-form-field>
+        </div>
+      </section>
+      <section class="apply-now-container">
+        <a routerLink="/apply" [state]="loanDetails">
+          <button mat-raised-button color="primary" [disabled]="isInputEmpty">Apply Now</button>
+        </a>
+      </section>
+    </mat-card-actions>
+  </mat-card>
+</main>

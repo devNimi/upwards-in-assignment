@@ -1,0 +1,16 @@
+.calculator-main-container {
+    display: flex;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* overridng meterial.io default classes */
+.calculatorheader-image {
+  background-image: url('https://upwards.in/assets/img/upwardslogo(txt).png');
+  background-size: cover;
+}
+
+.mat-form-field {
+    width: 500px;
+    max-width: 500px;
+}
