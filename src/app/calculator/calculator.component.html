@@ -19,28 +19,35 @@
       <div class="calculator-feild">
         <mat-form-field appearance="outline">
           <mat-label>Loan Amount</mat-label>
-          <input [(ngModel)]="loanDetails.amount" matInput  placeholder="15000" type="number" min="1000" max="10000000">
+          <input [(ngModel)]="loanDetails.amount" (ngModelChange)="updateLoanDetails($event)" matInput  placeholder="15000" type="number" required>
           <!-- <mat-hint>Loan Amount</mat-hint> -->
         </mat-form-field>
       </div>
       <div class="calculator-feild">
         <mat-form-field appearance="outline">
           <mat-label>Loan Tenure </mat-label>
-          <input [(ngModel)]="loanDetails.duration" matInput placeholder="15000" type="number" min="1000" max="10000000">
+          <input [(ngModel)]="loanDetails.duration" (ngModelChange)="updateLoanDetails($event)" matInput placeholder="15000" type="number" required>
           <mat-hint>Tenure in Months</mat-hint>
         </mat-form-field>
       </div>
       <div class="calculator-feild">
         <mat-form-field appearance="outline">
-          <mat-label>Interest Rate</mat-label>
-          <input [(ngModel)]="loanDetails.interest" matInput placeholder="15000" type="number" min="1000" max="10000000">
+          <mat-label>Interest Rate (per annum) </mat-label>
+          <input [(ngModel)]="loanDetails.interest" (ngModelChange)="updateLoanDetails($event)" matInput placeholder="15000" type="number" required>
           <mat-hint>ex. 30%</mat-hint>
         </mat-form-field>
       </div>
     </section>
+    <section class="apply-now-container">
+      <a routerLink="/apply">
+        <button mat-raised-button color="primary" [disabled]="isInputEmpty">Apply Now</button>
+      </a>
+    </section>
   </mat-card-actions>
 </mat-card>
 
-{{loanDetails.amount}}
-{{loanDetails.duration}}
-{{loanDetails.interest}}
+<h2>Your emi is {{monthlyEmi}}</h2>
+<p> ___ {{loanDetails.amount}}</p>
+<p> ___ {{loanDetails.interest}}</p>
+<p> ___ {{loanDetails.duration}}</p>
+<p> isemtpy {{isInputEmpty}}</p>

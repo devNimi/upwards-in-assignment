@@ -13,6 +13,7 @@ import { MessagesComponent }    from './messages/messages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { AppRoutingModule }     from './app-routing.module';
@@ -20,6 +21,7 @@ import { LoanApplyComponent } from './loan-apply/loan-apply.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SliderComponent } from './calculator/slider/slider.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   imports: [
@@ -30,7 +32,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule,
   ],
   declarations: [
     AppComponent,
