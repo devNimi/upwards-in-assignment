@@ -8,7 +8,8 @@ import { FormData } from './formData';
 })
 export class LoanApplyService {
 
-  _url = 'http://localhost:3000/apply';
+  // _url = 'http://localhost:3000/apply';
+  _url = 'https://reqres.in/api/users';
   constructor(private _http: HttpClient) { }
 
   apply(formData: FormData) {

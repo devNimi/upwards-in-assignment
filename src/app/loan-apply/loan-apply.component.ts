@@ -2,6 +2,7 @@ import { FormData } from './../formData';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,18 +17,8 @@ export class LoanApplyComponent implements OnInit {
   // refers to data object if user comes from calculator page
   state$: Observable<any>;
   isSubmitted = false;
+  isSubmiting = false;
   // initial form data
-  // formData = {
-  //   name: 'Nimesh Pancholi',
-  //   email: 'dsfsdf@gmail.com',
-  //   phone: 9024442096,
-  //   pan: 'BZHQQ0907C',
-  //   address: 'abc, India',
-  //   salary: 1234567,
-  //   loanAmount: 12345,
-  //   loanTenure: 12,
-  //   loanInterest: 12,
-  // }
   formData = {
     name: '',
     email: '',
@@ -99,6 +90,7 @@ export class LoanApplyComponent implements OnInit {
         '';
   }
 
+  // check for Apply Loan form
   isFormValid() {
     const V = "VALID";
     return this.name.status === V && this.email.status === V && this.phone.status === V &&
@@ -106,26 +98,39 @@ export class LoanApplyComponent implements OnInit {
       this.loanAmount.status === V && this.loanTenure.status === V && this.loanInterest.status === V;
   }
 
-  constructor(public activatedRoute: ActivatedRoute,private  _loanApplyService: LoanApplyService) { }
-
-  onSubmit() {
-    this.isSubmitted = true;
-    this._loanApplyService.apply(this.formData)
-      .subscribe(
-        data => console.log('sucsess', data),
-        error => console.log('Error!', error)
-      )
-  }
-
+  // prefill the data, if user came from calculator page
   preFillData(data) {
-    const { amount, interest, duration} = data;
+    const { amount, interest, duration } = data;
     this.formData.loanAmount = amount;
     this.formData.loanInterest = interest;
     this.formData.loanTenure = duration;
-    }
+  }
 
+  // snackbar
+  openSnackbar() {
+    const snackbarRef = this.snackbar.open('Form Submitted Successfully', "Close", {
+      horizontalPosition: 'center'
+    });
+  }
 
+  constructor(public activatedRoute: ActivatedRoute, public snackbar:MatSnackBar, private  _loanApplyService: LoanApplyService) { }
 
+  onSubmit() {
+    this.isSubmiting = true;
+    this._loanApplyService.apply(this.formData)
+      .subscribe(
+        data => {
+          this.isSubmiting = false;
+          this.isSubmitted = true;
+          this.openSnackbar()
+          console.log('sucsess', data)
+        },
+        error => {
+          this.isSubmiting = false;
+          console.log('Error!', error)
+        }
+      )
+  }
 
   ngOnInit() {
     this.state$ = this.activatedRoute.paramMap.pipe(
@@ -138,5 +143,4 @@ export class LoanApplyComponent implements OnInit {
         error => console.log('Erssdsror!', error)
       )
   }
-
 }

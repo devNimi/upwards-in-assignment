@@ -2,14 +2,39 @@
     display: flex;
     max-width: 780px;
     margin: 0 auto;
+    flex-direction: column;
 }
-
-/* overridng meterial.io default classes */
 .calculatorheader-image {
   background-image: url('https://upwards.in/assets/img/upwardslogo(txt).png');
   background-size: cover;
 }
 
+.experimental-feature-note {
+    font-weight: bold;
+    margin: 2em 0 0;
+    color: #e29696;
+}
+
+.monthly-emi-note {
+    margin-top: 0;
+    color: #ff4081;
+}
+/* chart */
+.chart-container {
+    margin-top: 1em;
+}
+
+
+/* overridng meterial.io default classes */
+.mat-card {
+    padding-bottom: 2em;
+}
+.mat-card-content {
+    padding: 1em;
+}
+.mat-card-actions {
+    padding: 0 1.4em 0;
+}
 .mat-form-field {
     width: 500px;
     max-width: 500px;

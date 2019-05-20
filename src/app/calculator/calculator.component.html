@@ -45,6 +45,7 @@
           </mat-form-field>
         </div>
       </section>
+      <p class="monthly-emi-note">Montly EMI: ₹{{getMonthlyEmi()}}</p>
       <section class="apply-now-container">
         <a routerLink="/apply" [state]="loanDetails">
           <button mat-raised-button color="primary" [disabled]="isInputEmpty">Apply Now</button>
@@ -52,4 +53,11 @@
       </section>
     </mat-card-actions>
   </mat-card>
+
+  <p class="experimental-feature-note">Experimental feature 🚫💻</p>
+  <aside class="chart-container">
+    <mat-card>
+      <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+    </mat-card>
+  </aside>
 </main>
