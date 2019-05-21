@@ -31,6 +31,6 @@
     padding: 0 1.4em 0;
 }
 .mat-form-field {
-    width: 360px;
+    width: 100%;
     max-width: 360px;
 }
